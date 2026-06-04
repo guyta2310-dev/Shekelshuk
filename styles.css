@@ -82,6 +82,86 @@ button {
 }
 
 /* ===== Ambient Background Effects ===== */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(251, 191, 36, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(251, 191, 36, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, black 20%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Floating Particles */
+.bg-particles {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.4;
+  animation: float-particle 20s infinite ease-in-out;
+}
+
+.particle-1 { left: 10%; top: 20%; animation-delay: 0s; animation-duration: 25s; }
+.particle-2 { left: 25%; top: 60%; animation-delay: -5s; animation-duration: 20s; }
+.particle-3 { left: 60%; top: 30%; animation-delay: -10s; animation-duration: 30s; }
+.particle-4 { left: 75%; top: 70%; animation-delay: -3s; animation-duration: 22s; }
+.particle-5 { left: 85%; top: 15%; animation-delay: -8s; animation-duration: 28s; }
+.particle-6 { left: 40%; top: 80%; animation-delay: -12s; animation-duration: 24s; }
+
+@keyframes float-particle {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+  25% { transform: translate(30px, -50px) scale(1.5); opacity: 0.6; }
+  50% { transform: translate(-20px, -100px) scale(1); opacity: 0.3; }
+  75% { transform: translate(40px, -50px) scale(1.2); opacity: 0.5; }
+}
+
+/* Floating Casino Coins */
+.floating-coins {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-coin {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: var(--bg);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.3);
+  animation: float-coin 15s infinite ease-in-out;
+  opacity: 0.6;
+}
+
+.coin-1 { right: 8%; top: 30%; animation-delay: 0s; }
+.coin-2 { right: 15%; top: 60%; animation-delay: -5s; animation-duration: 18s; }
+.coin-3 { right: 5%; top: 75%; animation-delay: -10s; animation-duration: 20s; }
+
+@keyframes float-coin {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(180deg); }
+}
+
 .ambient {
   position: fixed;
   width: 600px;
@@ -133,11 +213,60 @@ button {
   gap: 32px;
   padding: 32px;
   align-items: start;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 60%;
+  height: 200%;
+  background: radial-gradient(ellipse, rgba(251, 191, 36, 0.06), transparent 50%);
+  pointer-events: none;
 }
 
 .page-hero {
   grid-template-columns: minmax(0, 1.3fr) minmax(340px, 0.7fr);
   padding: 28px 32px;
+}
+
+/* Hero Badge Icon */
+.hero-badge {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 32px rgba(251, 191, 36, 0.3);
+  animation: badge-pulse 3s infinite ease-in-out;
+}
+
+.casino-badge {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  box-shadow: 0 8px 32px rgba(34, 197, 94, 0.3);
+}
+
+.admin-badge {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.3);
+}
+
+.hero-badge .hero-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--bg);
+}
+
+@keyframes badge-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
 .eyebrow,
@@ -148,6 +277,55 @@ button {
   font-size: 11px;
   font-weight: 600;
   color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eyebrow-icon {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+}
+
+.eyebrow-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Hero Features */
+.hero-features {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.feature-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 200ms ease;
+}
+
+.feature-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-2px);
+}
+
+.feature-chip svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--accent);
 }
 
 .hero h1,
@@ -330,6 +508,50 @@ button {
   margin-bottom: 24px;
 }
 
+.section-title-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.section-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.section-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.section-icon-markets {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.05));
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #22c55e;
+}
+
+.section-icon-activity {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.05));
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}
+
+.section-icon-games {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(251, 191, 36, 0.05));
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  color: var(--accent);
+}
+
+.section-icon-admin {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(139, 92, 246, 0.05));
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: #8b5cf6;
+}
+
 .section-heading h2 {
   font-size: 1.5rem;
 }
@@ -349,9 +571,42 @@ button {
 .casino-card:hover,
 .admin-card:hover,
 .resolution-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--line-strong);
-  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 
+    var(--shadow-lg), 
+    0 0 40px rgba(251, 191, 36, 0.15),
+    inset 0 1px 0 rgba(251, 191, 36, 0.1);
+}
+
+/* Animated border gradient on hover */
+.market-card,
+.casino-card {
+  position: relative;
+  background: var(--bg-card);
+}
+
+.market-card::before,
+.casino-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, transparent, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.market-card:hover::before,
+.casino-card:hover::before {
+  background: linear-gradient(135deg, var(--accent), transparent, var(--accent-strong));
+  opacity: 1;
 }
 
 .market-head,
@@ -649,6 +904,37 @@ select {
     var(--bg-card) 0%,
     rgba(22, 22, 31, 0.8) 100%
   );
+}
+
+/* Decorative game icons in background */
+.casino-card::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  width: 140px;
+  height: 140px;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.04;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+
+.casino-card:hover::after {
+  opacity: 0.08;
+}
+
+.dice-card::after {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%23fbbf24' stroke-width='1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='3' y='3' width='18' height='18' rx='2'/%3E%3Ccircle cx='8' cy='8' r='1.5' fill='%23fbbf24'/%3E%3Ccircle cx='16' cy='8' r='1.5' fill='%23fbbf24'/%3E%3Ccircle cx='8' cy='16' r='1.5' fill='%23fbbf24'/%3E%3Ccircle cx='16' cy='16' r='1.5' fill='%23fbbf24'/%3E%3Ccircle cx='12' cy='12' r='1.5' fill='%23fbbf24'/%3E%3C/svg%3E");
+}
+
+.plinko-card::after {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%23fbbf24' stroke-width='1' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='4' r='2'/%3E%3Ccircle cx='6' cy='10' r='1.5'/%3E%3Ccircle cx='12' cy='10' r='1.5'/%3E%3Ccircle cx='18' cy='10' r='1.5'/%3E%3Ccircle cx='4' cy='16' r='1.5'/%3E%3Ccircle cx='10' cy='16' r='1.5'/%3E%3Ccircle cx='16' cy='16' r='1.5'/%3E%3Ccircle cx='22' cy='16' r='1.5'/%3E%3Cpath d='M12 6v2M8 12l4 4M16 12l-4 4'/%3E%3C/svg%3E");
+}
+
+.blackjack-card::after {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%23fbbf24' stroke-width='1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='2' y='4' width='8' height='12' rx='1'/%3E%3Crect x='14' y='4' width='8' height='12' rx='1' transform='rotate(10 18 10)'/%3E%3Ctext x='6' y='12' font-size='6' fill='%23fbbf24' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E");
 }
 
 .casino-card::before {
@@ -1215,6 +1501,19 @@ select {
 
   .page-hero {
     grid-template-columns: 1fr;
+    padding-top: 90px;
+  }
+
+  .hero-badge {
+    top: 20px;
+    left: 20px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .hero-badge .hero-icon {
+    width: 24px;
+    height: 24px;
   }
 
   .hero-actions {
@@ -1228,6 +1527,12 @@ select {
   .section-heading {
     align-items: start;
     flex-direction: column;
+  }
+  
+  .section-title-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
   }
 }
 
