@@ -3,22 +3,71 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a0a0f" />
     <title>ShekelShuk | The Shuk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-page="shuk">
+    <!-- Animated Background Elements -->
+    <div class="bg-grid"></div>
+    <div class="bg-particles">
+      <div class="particle particle-1"></div>
+      <div class="particle particle-2"></div>
+      <div class="particle particle-3"></div>
+      <div class="particle particle-4"></div>
+      <div class="particle particle-5"></div>
+      <div class="particle particle-6"></div>
+    </div>
     <div class="ambient ambient-a"></div>
     <div class="ambient ambient-b"></div>
 
     <div id="app" class="app-shell">
       <header class="hero page-hero glass-card">
+        <div class="hero-badge">
+          <svg class="hero-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
         <div class="hero-copy">
-          <p class="eyebrow">Prediction Market</p>
+          <p class="eyebrow">
+            <span class="eyebrow-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </span>
+            Live Prediction Market
+          </p>
           <h1>The Shuk</h1>
           <p class="hero-text">
             Trade YES and NO shares on school and sports outcomes with live pricing and a shared Shekel
             wallet.
           </p>
+          <div class="hero-features">
+            <div class="feature-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+              Real-time Trading
+            </div>
+            <div class="feature-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              Secure Wallet
+            </div>
+            <div class="feature-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+              Social Trading
+            </div>
+          </div>
         </div>
 
         <div class="hero-actions">
@@ -46,9 +95,17 @@
       <main class="page-stack">
         <section class="panel glass-card">
           <div class="section-heading">
-            <div>
-              <p class="section-kicker">Markets</p>
-              <h2>Binary markets with live pricing</h2>
+            <div class="section-title-group">
+              <div class="section-icon section-icon-markets">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 3v18h18"/>
+                  <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+                </svg>
+              </div>
+              <div>
+                <p class="section-kicker">Markets</p>
+                <h2>Binary markets with live pricing</h2>
+              </div>
             </div>
             <p class="section-note">Buy YES or NO shares. Winning shares resolve at 1.00 Shekel.</p>
           </div>
@@ -57,9 +114,16 @@
 
         <section class="panel glass-card">
           <div class="section-heading">
-            <div>
-              <p class="section-kicker">Activity</p>
-              <h2>Latest transaction log</h2>
+            <div class="section-title-group">
+              <div class="section-icon section-icon-activity">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+              </div>
+              <div>
+                <p class="section-kicker">Activity</p>
+                <h2>Latest transaction log</h2>
+              </div>
             </div>
             <p class="section-note">Recent trades, casino results, admin actions, and market resolutions.</p>
           </div>

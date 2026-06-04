@@ -3,22 +3,81 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a0a0f" />
     <title>ShekelShuk | Casino</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-page="casino">
+    <!-- Animated Background Elements -->
+    <div class="bg-grid"></div>
+    <div class="bg-particles">
+      <div class="particle particle-1"></div>
+      <div class="particle particle-2"></div>
+      <div class="particle particle-3"></div>
+      <div class="particle particle-4"></div>
+      <div class="particle particle-5"></div>
+      <div class="particle particle-6"></div>
+    </div>
+    <div class="floating-coins">
+      <div class="floating-coin coin-1">$</div>
+      <div class="floating-coin coin-2">$</div>
+      <div class="floating-coin coin-3">$</div>
+    </div>
     <div class="ambient ambient-a"></div>
     <div class="ambient ambient-b"></div>
 
     <div id="app" class="app-shell">
       <header class="hero page-hero glass-card">
+        <div class="hero-badge casino-badge">
+          <svg class="hero-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="M12 8v8M8 12h8"/>
+          </svg>
+        </div>
         <div class="hero-copy">
-          <p class="eyebrow">Social Casino</p>
+          <p class="eyebrow">
+            <span class="eyebrow-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 3v12"/>
+                <circle cx="18" cy="6" r="3"/>
+                <circle cx="6" cy="18" r="3"/>
+                <path d="M18 9a9 9 0 0 1-9 9"/>
+              </svg>
+            </span>
+            Social Casino
+          </p>
           <h1>Casino Floor</h1>
           <p class="hero-text">
             Roll Dice, drop Plinko, and play Blackjack with the same Shekel balance you use in the
             markets.
           </p>
+          <div class="hero-features">
+            <div class="feature-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="8" height="8" rx="1"/>
+                <circle cx="6" cy="6" r="1"/>
+              </svg>
+              Dice Game
+            </div>
+            <div class="feature-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              Plinko
+            </div>
+            <div class="feature-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="6" height="8" rx="1"/>
+                <rect x="11" y="4" width="6" height="8" rx="1"/>
+                <path d="M6 16h12"/>
+              </svg>
+              Blackjack
+            </div>
+          </div>
         </div>
 
         <div class="hero-actions">
@@ -46,9 +105,17 @@
       <main class="page-stack">
         <section class="panel glass-card">
           <div class="section-heading">
-            <div>
-              <p class="section-kicker">Casino</p>
-              <h2>One wallet, three games</h2>
+            <div class="section-title-group">
+              <div class="section-icon section-icon-games">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polygon points="10 8 16 12 10 16 10 8"/>
+                </svg>
+              </div>
+              <div>
+                <p class="section-kicker">Casino</p>
+                <h2>One wallet, three games</h2>
+              </div>
             </div>
             <p class="section-note">Every game settles directly into your shared Shekel balance.</p>
           </div>
@@ -57,9 +124,16 @@
 
         <section class="panel glass-card">
           <div class="section-heading">
-            <div>
-              <p class="section-kicker">Activity</p>
-              <h2>Latest transaction log</h2>
+            <div class="section-title-group">
+              <div class="section-icon section-icon-activity">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+              </div>
+              <div>
+                <p class="section-kicker">Activity</p>
+                <h2>Latest transaction log</h2>
+              </div>
             </div>
             <p class="section-note">Track the newest game results alongside the rest of the platform.</p>
           </div>
